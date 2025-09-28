@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Projeto_Parametro</display-name>
+
+    <!-- Contexto -->
+    <context-param>
+        <param-name>instituicao</param-name>
+        <param-value>UFRRJ</param-value>
+    </context-param>
+    <context-param>
+        <param-name>site</param-name>
+        <param-value>www.ufrrj.br</param-value>
+    </context-param>
+
+    <!-- Servlet 1 -->
+    <servlet>
+        <servlet-name>ServletTeste1</servlet-name>
+        <servlet-class>Projeto_Parametro.ServletTeste1</servlet-class>
+        <init-param>
+            <param-name>teste1</param-name>
+            <param-value>Valor do teste 1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>teste2</param-name>
+            <param-value>Valor do teste 2</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletTeste1</servlet-name>
+        <url-pattern>/ServletTeste1</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet 2 -->
+    <servlet>
+        <servlet-name>ServletTeste2</servlet-name>
+        <servlet-class>Projeto_Parametro.ServletTeste2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletTeste2</servlet-name>
+        <url-pattern>/ServletTeste2</url-pattern>
+    </servlet-mapping>
+
+    <!-- Servlet 3 -->
+    <servlet>
+        <servlet-name>ServletVersao3</servlet-name>
+        <servlet-class>Projeto_Parametro.ServletVersao3</servlet-class>
+        <init-param>
+            <param-name>curso</param-name>
+            <param-value>WEB II</param-value>
+        </init-param>
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>teste@ufrrj.br</param-value>
+        </init-param>
+        <init-param>
+            <param-name>telefone</param-name>
+            <param-value>(21) 0000-0000</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletVersao3</servlet-name>
+        <url-pattern>/ServletVersao3</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

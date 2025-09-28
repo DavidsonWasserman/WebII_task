@@ -1,0 +1,22 @@
+package Projeto_Parametro;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/ServletTeste2")
+public class ServletTeste2 extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String instituicao = getServletContext().getInitParameter("instituicao");
+        String site = getServletContext().getInitParameter("site");
+
+        resp.setContentType("text/html;charset=UTF-8");
+        resp.getWriter().println("<h2>Servlet B</h2>");
+        resp.getWriter().println("Instituição: " + instituicao + "<br>");
+        resp.getWriter().println("Site: " + site + "<br>");
+    }
+}

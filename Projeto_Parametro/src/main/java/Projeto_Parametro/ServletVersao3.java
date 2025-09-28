@@ -1,0 +1,26 @@
+package Projeto_Parametro;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class ServletVersao3 extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        ServletConfig config = getServletConfig();
+
+        String email = config.getInitParameter("email");
+        String telefone = config.getInitParameter("telefone");
+        String curso = config.getInitParameter("curso");
+
+        resp.setContentType("text/html;charset=UTF-8");
+        resp.getWriter().println("<h1>Parâmetros de inicialização</h1>");
+        resp.getWriter().println("Email: " + email + "<br>");
+        resp.getWriter().println("Telefone: " + telefone + "<br>");
+        resp.getWriter().println("Curso: " + curso + "<br>");
+    }
+}

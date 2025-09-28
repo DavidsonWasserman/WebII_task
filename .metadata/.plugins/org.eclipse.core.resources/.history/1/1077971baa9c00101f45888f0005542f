@@ -1,0 +1,32 @@
+package Pacote_Parametro;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebInitParam;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
+
+import java.io.IOException;
+
+@WebServlet(
+    urlPatterns = "/ConfigServlet",
+    initParams = {
+        @WebInitParam(name = "curso", value = "WEB II")
+    }
+)
+public class ConfigServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        ServletConfig config = getServletConfig();
+
+        String email = config.getInitParameter("email");
+        String telefone = config.getInitParameter("telefone");
+        String curso = config.getInitParameter("curso");
+
+        resp.setContentType("text/html;charset=UTF-8");
+        resp.getWriter().println("<h1>Parâmetros de inicialização</h1>");
+        resp.getWriter().println("Email: " + email + "<br>");
+        resp.getWriter().println("Telefone: " + telefone + "<br>");
+        resp.getWriter().println("Curso: " + curso + "<br>");
+    }
+}
