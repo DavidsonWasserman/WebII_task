@@ -30,7 +30,6 @@ public class ServletAtleta1 extends HttpServlet {
                 atleta = new Atleta("Sem Nome", "Nenhum", 0);
         }
 
-        // Envia o objeto para o próximo servlet
         request.setAttribute("atleta", atleta);
         RequestDispatcher rd = request.getRequestDispatcher("Atleta2");
         rd.forward(request, response);
